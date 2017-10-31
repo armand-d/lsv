@@ -1,4 +1,10 @@
 <!-- Historic Content -->
+<ion-header-bar align-title="center" class="no-border header">
+     <div class="buttons">
+          <a href="#/main" class="button button-icon icon ion-ios-arrow-left"></a>
+     </div>
+     <h1 class="title"><a href="#/main"><img class="logo" ng-src="img/logo-white.png" alt="LSV"></a></h1>
+</ion-header-bar>
 <ion-view view-title="historic">
      <ion-pane class="padding historic page" ng-init="historicCtrl.init()">
           <p ng-hide="historicCtrl.data" class="no-data">{{historicCtrl.noData}}</p>

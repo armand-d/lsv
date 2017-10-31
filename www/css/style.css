@@ -94,6 +94,26 @@
 
 .modal {
 	padding: 20px;
+	background-color: #2c3e50;
+	color: #FFF;
+}
+
+.modal h3 {
+	text-align: center;
+	margin: 5% 0;
+	color: #FFF;
+}
+
+.modal .divider {
+	text-align: center;
+	background-color: #e67e22;
+	padding: 5px;
+}
+
+.modal .response {
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
 }
 
 .tuto {
@@ -102,7 +122,7 @@
 }
 
 .tuto h3, .tuto p, .tuto i {
-	color: #2c3e50;
+	color: #FFF;
 } 
 
 .tuto img {
