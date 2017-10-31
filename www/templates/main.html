@@ -9,10 +9,12 @@
      <ion-pane class="padding main page" ng-init="mainCtrl.init()">
           	<div ng-show="mainCtrl.isLoad">
           		<div ng-show="mainCtrl.stepIsFull" class="step-is-full">
-          			<h3>Rendez-vous dans <br><strong>{{mainCtrl.timeRest}}</strong></h3>
+          			<h3>Rendez-vous dans</h3>
+          			<p>{{mainCtrl.timeRest}}</p>
+          			<br>
           			<div class="buttons">
-          					        <a href="#/historic" class="button button-block button-positive">Hitorique</a>
-          					    </div>
+				        <a href="#/historic" class="button button-block button-positive">Hitorique</a>
+				    </div>
           		</div>
           		<div ng-hide="mainCtrl.stepIsFull">
           			<div class="row step">

@@ -10,7 +10,6 @@
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
         mainCtrl.showNext = false;
-        mainCtrl.timeRest = '';
         mainCtrl.isLoad = false;
 
         var dateObj = new Date();
@@ -24,12 +23,23 @@
             var dateObj = new Date();
             var hour = dateObj.getHours();
             var mnt = dateObj.getMinutes();
+            var scd = dateObj.getSeconds();
+
             var mntRest = 60 - mnt;
             if (mntRest.toString().length == 1) {
                 mntRest = '0' + (60 - mnt).toString();
             }
-            return (24 - hour) + 'h' + mntRest;
+
+            var scdRest = 60 - scd;
+            if (scdRest.toString().length == 1) {
+                scdRest = '0' + (60 - scd).toString();
+            }
+
+            if (scdRest == 60) { scdRest = '00';}
+             // +':'+ scdRest
+            return (24 - hour) +'h'+ mntRest;
         }
+        mainCtrl.timeRest = mainCtrl.getTimeRest();
 
         setInterval(function(){ 
             mainCtrl.timeRest = mainCtrl.getTimeRest();
@@ -65,6 +75,7 @@
         mainCtrl.step = $localStorage.step;
 
         mainCtrl.init = _ => {
+
             $ionicLoading.show({
                 content: 'Loading',
                 animation: 'fade-in',
@@ -96,6 +107,11 @@
                     $ionicLoading.hide();
                 }
             });
+
+            if (mainCtrl.step > 5) {
+                $ionicLoading.hide();
+            }
+
         }
         
         mainCtrl.selected = (value, key) => {
