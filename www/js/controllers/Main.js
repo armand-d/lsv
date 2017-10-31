@@ -11,6 +11,7 @@
         mainCtrl.showResponse = false;
         mainCtrl.showNext = false;
         mainCtrl.isLoad = false;
+        mainCtrl.selectedChoose = false;
 
         var dateObj = new Date();
         var month = dateObj.getUTCMonth() + 1;
@@ -115,26 +116,32 @@
         }
         
         mainCtrl.selected = (value, key) => {
-            var elmt = document.getElementById(key);
-            
-            if (key == mainCtrl.currStep.S) {
-                var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
-                elmt.style.backgroundColor = "#2ecc71";
+            if (!mainCtrl.selectedChoose) {
+                mainCtrl.selectedChoose = true;
+                var elmt = document.getElementById(key);
                 
-            } else {
-                var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
-                elmt.style.backgroundColor = "#c0392b";
-                mainCtrl.showResponse = true;
+                $('.item-response').attr('disabled', true);
+
+                if (key == mainCtrl.currStep.S) {
+                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
+                    elmt.style.backgroundColor = "#2ecc71";
+                    
+                } else {
+                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
+                    elmt.style.backgroundColor = "#c0392b";
+                    mainCtrl.showResponse = true;
+                }
+
+                $localStorage.historic.push(res);
+
+                mainCtrl.showNext = true;
             }
-
-            $localStorage.historic.push(res);
-
-            mainCtrl.showNext = true;
         }
 
         mainCtrl.nextQ = _ => {
             mainCtrl.showNext = false;
-
+            mainCtrl.selectedChoose = false;
+            
             mainCtrl.checkStep();
             mainCtrl.updateStep();
             mainCtrl.run();
@@ -158,6 +165,13 @@
         mainCtrl.checkStep = _ => {
             if (mainCtrl.currDay == newdate && mainCtrl.step >= 5) {
                 mainCtrl.stepIsFull = true;
+            }
+        }
+
+        mainCtrl.changeColor = (coll, color) => {
+            for(var i=0, len=coll.length; i<len; i++)
+            {
+                coll[i].style["background-color"] = color;
             }
         }
 

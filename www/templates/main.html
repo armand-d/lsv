@@ -18,18 +18,23 @@
           		</div>
           		<div ng-hide="mainCtrl.stepIsFull">
           			<div class="row step">
-          				<p><strong>{{mainCtrl.step}}</strong>/5</p>
+          				<!-- <p><strong>{{mainCtrl.step}}</strong>/5</p> -->
+          				<i class="ion-ios-circle-filled"></i>&nbsp;
+          				<i ng-class="mainCtrl.step >= 2 ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>&nbsp;
+          				<i ng-class="mainCtrl.step >= 3 ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>&nbsp;
+          				<i ng-class="mainCtrl.step >= 4 ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>&nbsp;
+          				<i ng-class="mainCtrl.step >= 5 ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>
           			</div>
           			<div class="row">
-          				<h3>{{mainCtrl.currStep.Q}} ?</h3>
+          				<h3 class="curr-question">{{mainCtrl.currStep.Q}}&nbsp;?</h3>
           			</div>
           			<hr>
           			<div class="row">
           				<ion-list class="list-response">
-          								<ion-item ng-click="mainCtrl.selected(value, key)" id="{{key}}" class="item-response" ng-repeat="(key, value) in mainCtrl.currStep.R">
-          									{{value}}
-          								</ion-item>
-          							</ion-list>
+							<ion-item ng-click="mainCtrl.selected(value, key)" id="{{key}}" class="item-response" ng-repeat="(key, value) in mainCtrl.currStep.R">
+								{{value}}
+							</ion-item>
+						</ion-list>
           			</div>
           			<hr>
           			<div class="row text-center response" ng-show="mainCtrl.showResponse">
