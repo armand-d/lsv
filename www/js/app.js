@@ -1,24 +1,67 @@
-// Ionic Starter App
+(function(){
+    'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+    // Création du module starter
+    var app = angular.module('starter', ['ionic', 'ui.router', 'ngStorage', 'firebase'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    .run(function($ionicPlatform, $http) {
+        $ionicPlatform.ready(function() {
+            if(window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+            }
+            if(window.StatusBar) {
+            StatusBar.styleDefault();
+            }
+        });
+    })
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
+    // Configuration des controllers et de l'architecture de l'application
+    .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider, $sceDelegateProvider){
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads.
+        'self',
+        // Allow loading from our assets domain.  Notice the difference between * and **.
+        'https://firebasestorage.googleapis.com/**',
+        'http://192.168.1.109:8100/**',
+        'http://localhost:8100/**',
+        'https://le-saviez-vous.firebaseio.com/**'
+    ]);
+
+    var config = {
+        apiKey: "AIzaSyAZdpuncFV0IMm4Y8yS71rnLHV91ns4LNQ",
+        authDomain: "le-saviez-vous.firebaseapp.com",
+        databaseURL: "https://le-saviez-vous.firebaseio.com",
+        projectId: "le-saviez-vous",
+        storageBucket: "le-saviez-vous.appspot.com",
+        messagingSenderId: "693337603808"
+    };
+    firebase.initializeApp(config);
+
+    $stateProvider
+        .state({
+            name          : 'tuto',
+            url           : '/tuto',
+            templateUrl   : 'templates/tuto.html',
+            controller    : 'TutoCtrl',
+            controllerAs  : 'tutoCtrl'
+        }).state({
+            name          : 'main',
+            url           : '/main',
+            templateUrl   : 'templates/main.html',
+            controller    : 'MainCtrl',
+            controllerAs  : 'mainCtrl'
+        }).state({
+            name          : 'historic',
+            url           : '/historic',
+            templateUrl   : 'templates/historic.html',
+            controller    : 'HistoricCtrl',
+            controllerAs  : 'historicCtrl'
+        });
+
+        // Redirection vers la page d'accueil si url n'existe pas
+        $urlRouterProvider.otherwise('main');
+    });
+
+})();

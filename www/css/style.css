@@ -1,1 +1,115 @@
 /* Empty. Add your own CSS if you like */
+.page {
+	margin-top: 44px;
+	background-color: #2c3e50;
+}
+
+.header {
+	background-color: #2c3e50;
+	color: #FFF;
+	background-image: none;
+}
+
+.header .logo {
+    width: 30px;
+    margin-top: 12px;
+}
+
+.header a {
+	color: #FFF;
+}
+
+.main h3 {
+	text-align: center;
+	padding: 2% 0;
+	display: block;
+	color: #FFF;
+}
+
+.main .item-response {
+	background-color: #e67e22;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	border: none;
+}
+
+.historic .item-response {
+	background-color: #2980b9;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	border: none;
+}
+
+.historic p.no-data {
+	color: #FFF;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.historic .item-response p {
+	color: #FFF;
+}
+
+.list-response {
+	display: block;
+	width: 100%;
+}
+
+.main .step-is-full {
+	text-align: center;
+	margin: 50% 0;
+	display: block;
+	color: #FFF;
+}
+
+.main .step-is-full h3 {
+	font-weight: lighter;
+
+}
+
+.main .step-is-full a {
+	color: #FFF;
+}
+
+.main .step p {
+	text-align: center;
+	display: block;
+	width: 100%;
+	color: #FFF;
+}
+
+.main .response p {
+	text-align: center;
+	display: block;
+	color: #FFF;
+}
+
+.modal {
+	padding: 20px;
+}
+
+.tuto {
+	margin-top: 44px;
+	text-align: center;
+}
+
+.tuto h3, .tuto p, .tuto i {
+	color: #2c3e50;
+} 
+
+.tuto img {
+	margin-top: 10%;
+	width: 80px;
+}
+
+.tuto i {
+	font-size: 30px;
+}
