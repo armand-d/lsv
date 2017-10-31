@@ -117,7 +117,8 @@
 }
 
 .tuto {
-	margin-top: 44px;
+	margin-top: 0px;
+	padding-top: 44px;
 	text-align: center;
 }
 
