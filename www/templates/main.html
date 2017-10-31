@@ -1,0 +1,36 @@
+<!-- Main Content -->
+<ion-view view-title="Main">
+     <ion-pane class="padding main page" ng-init="mainCtrl.init()">
+          	<div ng-show="mainCtrl.isLoad">
+          		<div ng-show="mainCtrl.stepIsFull" class="step-is-full">
+          			<h3>Rendez-vous dans <br><strong>{{mainCtrl.timeRest}}</strong></h3>
+          			<div class="buttons">
+          					        <a href="#/historic" class="button button-block button-positive">Hitorique</a>
+          					    </div>
+          		</div>
+          		<div ng-hide="mainCtrl.stepIsFull">
+          			<div class="row step">
+          				<p><strong>{{mainCtrl.step}}</strong>/5</p>
+          			</div>
+          			<div class="row">
+          				<h3>{{mainCtrl.currStep.Q}} ?</h3>
+          			</div>
+          			<hr>
+          			<div class="row">
+          				<ion-list class="list-response">
+          								<ion-item ng-click="mainCtrl.selected(value, key)" id="{{key}}" class="item-response" ng-repeat="(key, value) in mainCtrl.currStep.R">
+          									{{value}}
+          								</ion-item>
+          							</ion-list>
+          			</div>
+          			<hr>
+          			<div class="row text-center response" ng-show="mainCtrl.showResponse">
+          				<p>Réponse : <strong>{{mainCtrl.currResponse}}</strong></p>
+          			</div>
+          			<div ng-show="mainCtrl.showNext">
+          				<button class="button button-block button-positive" ng-click="mainCtrl.nextQ()">Suivant</button>
+          			</div>
+          		</div>
+          	</div>
+     </ion-pane>
+</ion-view>

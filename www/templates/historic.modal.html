@@ -1,0 +1,14 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center">
+	  	<div class="buttons">
+			<a ng-click="historicCtrl.closeModal()" class="button button-icon icon ion-ios-checkmark-empty color-positive"></a>
+		</div>
+	</ion-header-bar>
+    <ion-content>
+      <div class="modal">
+      	<h3>{{historicCtrl.dataModal.Q}}</h3>
+      	<hr>
+      	<p>Réponse : {{historicCtrl.dataModal.R}}</p>
+      </div>
+    </ion-content>
+</ion-modal-view>
