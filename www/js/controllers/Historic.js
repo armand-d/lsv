@@ -35,7 +35,7 @@
 
         historicCtrl.share = (Q,R) => {
             $cordovaSocialSharing
-                .share(Q+' ?'+'\n\n\n'+'Réponse : '+R, 'Le Saviez Vous', null, null)
+                .share(Q+' ?'+'\n\n\n'+'Réponse : '+R+'\n\n\n'+'Explication : '+E, 'Le Saviez Vous', null, null)
                 .then(function(result) {
                   // success
                 }, function(err) {
