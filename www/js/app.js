@@ -2,7 +2,7 @@
     'use strict';
 
     // Création du module starter
-    var app = angular.module('starter', ['ionic', 'ui.router', 'ngStorage', 'firebase'])
+    var app = angular.module('starter', ['ionic', 'ui.router', 'ngStorage', 'firebase', 'ngCordova'])
 
     .run(function($ionicPlatform, $http) {
         $ionicPlatform.ready(function() {
