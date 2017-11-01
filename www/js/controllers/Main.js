@@ -5,7 +5,7 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup) {
         const mainCtrl = this;
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
@@ -180,8 +180,33 @@
                 coll[i].style["background-color"] = color;
             }
         }
+
+        mainCtrl.share = _ => {
+            $cordovaSocialSharing
+                .share('Rendez vous sur LSV et découvrez jusqu\'à 5 nouvelles connaissances par jour !', 'Le Saviez Vous', null, null)
+                .then(function(result) {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'LSV',
+                        template: 'Merci ! vous pouvez desormez accéder à 5 nouvelles connaissances'
+                    });
+
+                    alertPopup.then(function(res) {
+                        $localStorage.level = $localStorage.level + 1;
+                        $localStorage.step = 1;
+                
+                        mainCtrl.level = $localStorage.level;
+                        mainCtrl.step = $localStorage.step;
+                    });
+
+                }, function(err) {
+                  $ionicPopup.alert({
+                     title: 'LSV',
+                     template: 'Erreur'
+                   });
+                });
+        }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup'];
 
 })();
