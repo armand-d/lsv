@@ -41,6 +41,10 @@
 	border: none;
 }
 
+.historic {
+	margin-top: 59px;
+}
+
 .historic .item-response {
 	background-color: #2980b9;
 	margin-bottom: 10px;
