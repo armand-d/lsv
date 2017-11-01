@@ -185,33 +185,27 @@
         mainCtrl.share = _ => {
             $cordovaSocialSharing
                 .share('Rendez vous sur LSV et découvrez jusqu\'à 5 nouvelles connaissances par jour !', 'Le Saviez Vous', null, null)
-                .success(function(result) {
+                .then(function(result) {
                     var alertPopup = $ionicPopup.alert({
                         title: 'LSV',
                         template: result
                     });
 
-                    // alertPopup.then(function(res) {
-                    //     $localStorage.level = $localStorage.level + 1;
-                    //     $localStorage.step = 1;
+                    alertPopup.then(function(res) {
+                        $localStorage.level = $localStorage.level + 1;
+                        $localStorage.step = 1;
                 
-                    //     mainCtrl.level = $localStorage.level;
-                    //     mainCtrl.step = $localStorage.step;
+                        mainCtrl.level = $localStorage.level;
+                        mainCtrl.step = $localStorage.step;
 
-                    //     mainCtrl.init();
-                    // });
+                        mainCtrl.init();
+                    });
 
-                }) 
-                .error(function(err) {
+                }, function(err) {
                   $ionicPopup.alert({
                      template: 'Erreur'
                    });
                 });
-
-            // $cordovaSocialSharing
-            // .share("title", "Share Video",current.file_path)
-            // .success(function (result) { console.log(result)})
-            // .error(function(data) { console.log(data)});
         }
     };
 
