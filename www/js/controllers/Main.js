@@ -5,7 +5,7 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal) {
         const mainCtrl = this;
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
@@ -122,12 +122,12 @@
                 $('.item-response').attr('disabled', true);
 
                 if (key == mainCtrl.currStep.S) {
-                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
+                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
                     elmt.style.backgroundColor = "#2ecc71";
                     
                 } else {
                     $cordovaVibration.vibrate(100);
-                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
+                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
                     elmt.style.backgroundColor = "#c0392b";
                     mainCtrl.showResponse = true;
                 }
@@ -209,8 +209,23 @@
                    });
                 });
         }
+
+        $ionicModal.fromTemplateUrl('templates/main.modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            mainCtrl.modal = modal;
+        });
+
+        mainCtrl.showE = _ => {
+            mainCtrl.modal.show();
+        }
+
+        mainCtrl.closeModal = _ => {
+            mainCtrl.modal.hide();
+        }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform', '$ionicModal'];
 
 })();

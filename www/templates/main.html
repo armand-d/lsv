@@ -46,8 +46,9 @@
           			<div class="row text-center response" ng-show="mainCtrl.showResponse">
           				<p>Réponse : <strong>{{mainCtrl.currResponse}}</strong></p>
           			</div>
-          			<div ng-show="mainCtrl.showNext">
-          				<button class="button button-block button-positive" ng-click="mainCtrl.nextQ()">Suivant</button>
+          			<div ng-show="mainCtrl.showNext" class="button-bar">
+          				<button class="button button-light icon ion-ios-information" ng-click="mainCtrl.showE()"></button>
+          				<button class="button button-positive" ng-click="mainCtrl.nextQ()">Suivant</button>
           			</div>
           		</div>
           	</div>
