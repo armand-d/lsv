@@ -12,6 +12,7 @@
         mainCtrl.showNext = false;
         mainCtrl.isLoad = false;
         mainCtrl.selectedChoose = false;
+        // mainCtrl.timeRest = null;
 
         var dateObj = new Date();
         var month = dateObj.getUTCMonth() + 1;
@@ -37,13 +38,11 @@
             }
 
             if (scdRest == 60) { scdRest = '00';}
-             // +':'+ scdRest
-            return (24 - hour) +'h'+ mntRest;
+            return (24 - hour) +'h'+ mntRest+':'+ scdRest;
         }
-        mainCtrl.timeRest = mainCtrl.getTimeRest();
 
         setInterval(function(){ 
-            mainCtrl.timeRest = mainCtrl.getTimeRest();
+            $('.timer').html(mainCtrl.getTimeRest());
             mainCtrl.checkStatus();
         }, 1000);
 
@@ -141,7 +140,7 @@
         mainCtrl.nextQ = _ => {
             mainCtrl.showNext = false;
             mainCtrl.selectedChoose = false;
-            
+
             mainCtrl.checkStep();
             mainCtrl.updateStep();
             mainCtrl.run();
