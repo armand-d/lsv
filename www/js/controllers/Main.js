@@ -5,7 +5,7 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration) {
         const mainCtrl = this;
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
@@ -126,6 +126,7 @@
                     elmt.style.backgroundColor = "#2ecc71";
                     
                 } else {
+                    $cordovaVibration.vibrate(100);
                     var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse};
                     elmt.style.backgroundColor = "#c0392b";
                     mainCtrl.showResponse = true;
@@ -207,6 +208,6 @@
         }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration'];
 
 })();
