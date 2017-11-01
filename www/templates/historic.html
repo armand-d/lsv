@@ -6,12 +6,12 @@
      <h1 class="title"><a href="#/main"><img class="logo" ng-src="img/logo-white.png" alt="LSV"></a></h1>
 </ion-header-bar>
 <ion-view view-title="historic">
-     <ion-pane class="padding historic page" ng-init="historicCtrl.init()">
+     <div class="padding historic page" ng-init="historicCtrl.init()">
           <p ng-hide="historicCtrl.data" class="no-data">{{historicCtrl.noData}}</p>
           <ion-list class="list-response" ng-show="historicCtrl.data">
                <ion-item ng-click="historicCtrl.selected(value)" id="{{key}}" class="item-response" ng-repeat="(key, value) in historicCtrl.data">
                     <p>{{value.Q}}</p>
                </ion-item>
           </ion-list>
-     </ion-pane>
+     </div>
 </ion-view>
