@@ -165,6 +165,8 @@
         mainCtrl.checkStep = _ => {
             if (mainCtrl.currDay == newdate && mainCtrl.step >= 5) {
                 mainCtrl.stepIsFull = true;
+            } else {
+                mainCtrl.stepIsFull = false;
             }
         }
 
