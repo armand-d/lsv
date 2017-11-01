@@ -41,15 +41,6 @@
             return (24 - hour) +'h'+ mntRest+':'+ scdRest;
         }
 
-        $cordovaLocalNotification.schedule({
-            id: 1,
-            title: 'Title here',
-            text: 'Text here',
-            every: 'minute'
-        }).then(function (result) {
-            alert('ok');
-        });
-
         setInterval(function(){ 
             $('.timer').html(mainCtrl.getTimeRest());
             mainCtrl.checkStatus();
