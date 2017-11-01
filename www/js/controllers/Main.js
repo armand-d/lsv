@@ -5,7 +5,7 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform) {
         const mainCtrl = this;
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
@@ -40,6 +40,15 @@
             if (scdRest == 60) { scdRest = '00';}
             return (24 - hour) +'h'+ mntRest+':'+ scdRest;
         }
+
+        $cordovaLocalNotification.schedule({
+            id: 1,
+            title: 'Title here',
+            text: 'Text here',
+            every: 'minute'
+        }).then(function (result) {
+            alert('ok');
+        });
 
         setInterval(function(){ 
             $('.timer').html(mainCtrl.getTimeRest());
@@ -190,7 +199,7 @@
                 .then(function(result) {
                     var alertPopup = $ionicPopup.alert({
                         title: 'LSV',
-                        template: result
+                        template: 'Merci ! vous pouvez désormais accéder à 5 nouvelles connaissances'
                     });
 
                     alertPopup.then(function(res) {
@@ -211,6 +220,6 @@
         }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform'];
 
 })();

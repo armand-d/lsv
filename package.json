@@ -11,6 +11,13 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.10",
     "angularfire": "^2.3.0",
+    "cordova-plugin-badge": "^0.8.5",
+    "cordova-plugin-local-notifications": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
     "ngstorage": "^0.3.11"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-local-notifications": {}
+    }
   }
 }
