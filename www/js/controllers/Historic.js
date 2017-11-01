@@ -33,7 +33,7 @@
             historicCtrl.modal.hide();
         }
 
-        historicCtrl.share = (Q,R) => {
+        historicCtrl.share = (Q, R, E) => {
             $cordovaSocialSharing
                 .share(Q+' ?'+'\n\n\n'+'Réponse : '+R+'\n\n\n'+'Explication : '+E, 'Le Saviez Vous', null, null)
                 .then(function(result) {
