@@ -187,7 +187,7 @@
                 .then(function(result) {
                     var alertPopup = $ionicPopup.alert({
                         title: 'LSV',
-                        template: 'Merci ! vous pouvez desormez accéder à 5 nouvelles connaissances'
+                        template: result
                     });
 
                     alertPopup.then(function(res) {
