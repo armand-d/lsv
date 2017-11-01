@@ -29,18 +29,17 @@
             historicCtrl.modal.show();
         }
 
-        historicCtrl.closeModal = function() {
+        historicCtrl.closeModal = _=> {
             historicCtrl.modal.hide();
         }
 
-        historicCtrl.share = function () {
-            // $cordovaSocialSharing.share('This is my message', 'Subject string', null, 'http://www.mylink.com');
+        historicCtrl.share = (Q,R) => {
             $cordovaSocialSharing
-                .share('This is my message', 'Subject string', null, 'http://www.mylink.com') // Share via native share sheet
+                .share(Q+' ?'+'\n\n\n'+'Réponse : '+R, 'Le Saviez Vous', null, null)
                 .then(function(result) {
-                  // Success!
+                  // success
                 }, function(err) {
-                  // An error occured. Show a message to the user
+                  // erro
                 });
         }
 
