@@ -260,7 +260,28 @@
 
         // ajout des favoris
         mainCtrl.addFavorite = _ => {
-            $localStorage.favorite.push(mainCtrl.res);
+            mainCtrl.dataFavorite = mainCtrl.res;
+            mainCtrl.favoriteExiste = false;
+
+            $.each($localStorage.favorite, function(index, value ) {
+                if (mainCtrl.dataFavorite == value) {
+                    mainCtrl.favoriteExiste = true;
+                }
+            });
+
+            if (!mainCtrl.favoriteExiste) {
+                $localStorage.favorite.push(mainCtrl.dataFavorite);
+                $ionicPopup.alert({
+                    title: 'LSV',
+                    template: 'Ajouté au favoris !'
+                });
+            } else {
+                $ionicPopup.alert({
+                    title: 'LSV',
+                    template: 'Déjà dans vos favoris.'
+                });
+                
+            }
         }
     };
 
