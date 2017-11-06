@@ -207,6 +207,10 @@ a.btn-tuto-next {
 	color: #FFF;
 }
 
+.side-menu .left {
+	margin-top: 10px;
+}
+
 .side-menu .left a {
 	text-decoration: none;
 	color: #333;
