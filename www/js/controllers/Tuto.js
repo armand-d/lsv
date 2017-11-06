@@ -5,10 +5,8 @@
     .module('starter')
     .controller('TutoCtrl', TutoCtrl);
 
-    function TutoCtrl ($scope, $localStorage, $location, $ionicModal, $rootScope) {
+    function TutoCtrl () {
         const tutoCtrl = this;
     };
-
-    TutoCtrl.$inject = ['$scope', '$localStorage', '$location', '$ionicModal', '$rootScope'];
 
 })();
