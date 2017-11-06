@@ -5,7 +5,7 @@
     .module('starter')
     .controller('AddqCtrl', AddqCtrl);
 
-    function AddqCtrl ($ionicPopup, FireBase) {
+    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading) {
         const addqCtrl = this;
 
         addqCtrl.content = '';
@@ -15,6 +15,15 @@
         addqCtrl.solution = '';
     
         addqCtrl.submit = _ => {
+
+            $ionicLoading.show({
+                content: 'Loading',
+                animation: 'fade-in',
+                showBackdrop: true,
+                maxWidth: 200,
+                showDelay: 0
+            });
+
             if (addqCtrl.content && addqCtrl.R1 && addqCtrl.R2 && addqCtrl.R3 && addqCtrl.solution) {
 
                 addqCtrl.data = {
@@ -31,6 +40,8 @@
                     addqCtrl.R3 = '';
                     addqCtrl.solution = '';
 
+                    $ionicLoading.hide();
+
                     $ionicPopup.alert({
                         title: 'LSV',
                         template: 'Merci !'
@@ -38,6 +49,9 @@
                 });
 
             } else {
+
+                $ionicLoading.hide();
+
                 var alertPopup = $ionicPopup.alert({
                     title: 'LSV',
                     template: 'Vous devez saisir tous les champs'
@@ -46,6 +60,6 @@
         }
     };
 
-    AddqCtrl.$inject = ['$ionicPopup', 'FireBase'];
+    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading'];
 
 })();
