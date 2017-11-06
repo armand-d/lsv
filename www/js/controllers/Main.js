@@ -8,7 +8,7 @@
     function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal) {
         const mainCtrl = this;
         
-        // Initialisation
+        // Initialisation des variables
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
         mainCtrl.showNext = false;
@@ -51,7 +51,8 @@
             mainCtrl.modal = modal;
         });
 
-        // functions 
+        // --------- FONCTIONS ---------
+        
         // initialise les questions
         mainCtrl.init = _ => {
 
