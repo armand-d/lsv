@@ -142,17 +142,38 @@
 	margin-top: 0px;
 	padding-top: 44px;
 	text-align: center;
+	height: 100%;
 }
 
 .tuto h3, .tuto p, .tuto i {
 	color: #FFF;
 } 
 
-.tuto img {
+.tuto img.logo {
 	margin-top: 10%;
 	width: 80px;
 }
 
-.tuto i {
+.tuto .ion-ios-list-outline {
 	font-size: 30px;
+}
+
+a.btn-tuto-next {
+	text-decoration: none;
+	margin: 10px;
+	color: #e67e22;
+}
+
+.tuto .btn-next {
+	background-color: transparent!important;
+	border: none;
+	color: #e67e22;
+}
+
+.tuto .slide-1 {
+	margin: 30% 0;
+}
+
+.tuto .slide-2 p {
+	margin-left: -15px;
 }

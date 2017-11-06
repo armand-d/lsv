@@ -1,17 +1,34 @@
 <!-- Tuto Content -->
+<ion-header-bar align-title="center" class="no-border header">
+     <div class="buttons">
+     </div>
+     <h1 class="title"></h1>
+     <div class="buttons">
+          <a href="#/main" class="btn-tuto-next">Passer</a>
+     </div>
+</ion-header-bar>
 <ion-view view-title="tuto">
-     <ion-pane class="padding tuto page">
-			<img class="logo" ng-src="img/big-logo-white.png" alt="LSV">
-          	<h3>Bienvenu sur LSV</h3>
-          	<p><strong>L</strong>e <strong>S</strong>aviez <strong>V</strong>ous</p>
-          	<br>
-          	<p><strong>Jusqu'à 5 nouvelles <br>connaissances par jour !</strong></p>
-          	<hr>
-          	<br>
-          	<p>Rendez vous dans l'historique <br>pour ne rien oublier <br><i class="icon ion-ios-list-outline"></i></p>
-          	<br>
-          	<div class="buttons">
-			    <a href="#/main" class="button button-block button-positive">Passer</a>
-			</div>
-     </ion-pane>
+          <ion-slide-box class="padding tuto page">
+               <ion-slide>
+                    <div class="slide-1">
+                         <img class="logo" ng-src="img/big-logo-white.png" alt="LSV">
+                         <h3>Bienvenu sur LSV</h3>
+                         <p><strong>L</strong>e <strong>S</strong>aviez <strong>V</strong>ous</p>
+                         <br>
+                         <p><strong>Jusqu'à 5 nouvelles <br>connaissances par jour !</strong></p>
+                         <!-- <button ng-click="tutoCtrl.nextSlide()" class="btn-next">Suivant</button> -->
+                    </div>
+               </ion-slide>
+               <ion-slide>
+                    <div class="slide-2">
+                         <br>
+                         <img class="screen" ng-src="img/screen.png" alt="LSV">
+                         <br>
+                         <br>
+                         <p><i class="ion-record" style="color: #ff0000"></i> Historique des questions</p>
+                         <p><i class="ion-record" style="color: #8cc63f"></i> Avancement des questions</p><!-- 
+                         <p>Rendez vous dans l'historique <br>pour ne rien oublier <br><i class="icon ion-ios-list-outline"></i></p> -->
+                    </div>
+               </ion-slide>
+          </ion-slide-box>
 </ion-view>
