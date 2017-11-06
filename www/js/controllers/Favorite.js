@@ -18,10 +18,15 @@
         favoriteCtrl.data = false;
 
         // Gestion des données des favoris
-        if($localStorage.favorite.length == 0) {
-            favoriteCtrl.noData = 'Pas de favoris pour l\'instant...';     
-        } else {
-            favoriteCtrl.data = $localStorage.favorite;
+        favoriteCtrl.init = _ => {
+            favoriteCtrl.noData = '';
+            favoriteCtrl.data = false;
+
+            if($localStorage.favorite.length == 0) {
+                favoriteCtrl.noData = 'Pas de favoris pour l\'instant...';     
+            } else {
+                favoriteCtrl.data = $localStorage.favorite;
+            }
         }
 
         // Modal
@@ -52,6 +57,19 @@
                 }, function(err) {
                   // erro
                 });
+        }
+
+        favoriteCtrl.delete = value => {
+            favoriteCtrl.dataFavorite = value;
+
+            $.each($localStorage.favorite, function(index, value ) {
+                if (favoriteCtrl.dataFavorite == value) {
+                    $localStorage.favorite.splice(index,1);
+                    favoriteCtrl.closeModal();
+                }
+            });
+            
+            favoriteCtrl.init();
         }
 
     };

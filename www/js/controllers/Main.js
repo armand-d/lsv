@@ -273,7 +273,7 @@
                 $localStorage.favorite.push(mainCtrl.dataFavorite);
                 $ionicPopup.alert({
                     title: 'LSV',
-                    template: 'Ajouté au favoris !'
+                    template: 'Ajouté aux favoris !'
                 });
             } else {
                 $ionicPopup.alert({

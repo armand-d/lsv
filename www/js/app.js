@@ -57,7 +57,8 @@
             url           : '/historic',
             templateUrl   : 'templates/historic.html',
             controller    : 'HistoricCtrl',
-            controllerAs  : 'historicCtrl'
+            controllerAs  : 'historicCtrl',
+            cache         : false
         }).state({
             name          : 'add-q',
             url           : '/add-q',
@@ -75,7 +76,8 @@
             url           : '/favorite',
             templateUrl   : 'templates/favorite.html',
             controller    : 'FavoriteCtrl',
-            controllerAs  : 'favoriteCtrl'
+            controllerAs  : 'favoriteCtrl',
+            cache         : false
         });
 
         // Redirection vers la page d'accueil si url n'existe pas
