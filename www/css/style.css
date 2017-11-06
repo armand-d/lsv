@@ -228,3 +228,12 @@ a.btn-tuto-next {
 	margin: 10px auto;
 	display: block;
 }
+
+.about h3 {
+	color: #F2F2F2;
+}
+
+.about {
+	text-align: center;
+	color: #F2F2F2;
+}
