@@ -5,9 +5,29 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal, $ionicSideMenuDelegate, $rootScope) {
         const mainCtrl = this;
         
+        $rootScope.shareApp = _ => {
+            $cordovaSocialSharing
+            .share('Rendez vous sur LSV et découvrez jusqu\'à 5 nouvelles connaissances par jour !', 'Le Saviez Vous', null, null)
+            .then(function(result) {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'LSV',
+                    template: 'Merci !'
+                });
+
+            }, function(err) {
+              $ionicPopup.alert({
+                 template: 'Erreur'
+               });
+            });
+        }
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
+
         // Initialisation des variables
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
@@ -238,6 +258,6 @@
         }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform', '$ionicModal'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform', '$ionicModal', '$ionicSideMenuDelegate', '$rootScope'];
 
 })();

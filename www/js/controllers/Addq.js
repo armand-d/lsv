@@ -5,8 +5,12 @@
     .module('starter')
     .controller('AddqCtrl', AddqCtrl);
 
-    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading) {
+    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope) {
         const addqCtrl = this;
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
 
         addqCtrl.content = '';
         addqCtrl.R1 = '';
@@ -60,6 +64,6 @@
         }
     };
 
-    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading'];
+    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope'];
 
 })();

@@ -11,15 +11,30 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.10",
     "angularfire": "^2.3.0",
+    "cordova-ios": "^4.5.3",
     "cordova-plugin-badge": "^0.8.5",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-local-notifications": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "cordova-android": "~6.1.2",
+    "ionic-plugin-keyboard": "~2.2.1",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-plugin-statusbar": "2.2.1",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-splashscreen": "~4.0.1"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-local-notifications": {},
-      "cordova-plugin-fcm": {}
-    }
+      "cordova-plugin-fcm": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

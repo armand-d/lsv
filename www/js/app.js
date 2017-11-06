@@ -64,6 +64,18 @@
             templateUrl   : 'templates/add-q.html',
             controller    : 'AddqCtrl',
             controllerAs  : 'addqCtrl'
+        }).state({
+            name          : 'about',
+            url           : '/about',
+            templateUrl   : 'templates/about.html',
+            controller    : 'AboutCtrl',
+            controllerAs  : 'aboutCtrl'
+        }).state({
+            name          : 'favorite',
+            url           : '/favorite',
+            templateUrl   : 'templates/favorite.html',
+            controller    : 'FavoriteCtrl',
+            controllerAs  : 'favoriteCtrl'
         });
 
         // Redirection vers la page d'accueil si url n'existe pas

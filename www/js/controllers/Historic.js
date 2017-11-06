@@ -5,8 +5,12 @@
     .module('starter')
     .controller('HistoricCtrl', HistoricCtrl);
 
-    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing) {
+    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicSideMenuDelegate) {
         const historicCtrl = this;
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
 
         // Initialisation des variables
         historicCtrl.dataModal = '';
@@ -52,6 +56,6 @@
 
     };
 
-    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing'];
+    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicSideMenuDelegate'];
 
 })();
