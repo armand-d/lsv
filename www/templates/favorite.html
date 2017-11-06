@@ -7,6 +7,13 @@
 </ion-header-bar>
 <ion-view view-title="favorite">
      <ion-content class="padding favorite">
-          <p>favorite</p>
+     		<h3>Favoris</h3>
+     		<hr>
+          	<p ng-hide="favoriteCtrl.data" class="no-data">{{favoriteCtrl.noData}}</p>
+          	<ion-list class="list-response" ng-show="favoriteCtrl.data">
+               <ion-item ng-click="favoriteCtrl.selected(value)" id="{{key}}" class="item-response" ng-repeat="(key, value) in favoriteCtrl.data">
+                    <p>{{value.Q}}</p>
+               </ion-item>
+          	</ion-list>
      </ion-content>
 </ion-view>

@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center">
+	  	<h1 class="title">
+			<a ng-click="favoriteCtrl.closeModal()" class="button button-icon icon ion-ios-arrow-down color-positive"></a>
+		</h1>
+	</ion-header-bar>
+    <ion-content>
+      <div class="modal">
+      	<h3>{{favoriteCtrl.dataModal.Q}} ?</h3>
+      	<p class="divider">Réponse</p>
+      	<p class="response">{{favoriteCtrl.dataModal.R}}</p>
+  	    <p class="divider">Explication</p>
+  	    <p>{{favoriteCtrl.dataModal.E}}</p>
+        <div class="buttons">
+  	        <p ng-click="favoriteCtrl.share(favoriteCtrl.dataModal.Q, favoriteCtrl.dataModal.R, favoriteCtrl.dataModal.E)" class="button button-block button-positive">Partager</p>
+  	    </div>
+      </div>
+    </ion-content>
+</ion-modal-view>

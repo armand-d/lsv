@@ -49,6 +49,7 @@
             $localStorage.currDay = newdate;
             $localStorage.step = 1;
             $localStorage.historic = [];
+            $localStorage.favorite = [];
             $localStorage.clientExist = true;
             $location.path('/tuto');
         }
@@ -160,17 +161,17 @@
                 $('.item-response').attr('disabled', true);
 
                 if (key == mainCtrl.currStep.S) {
-                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
+                    mainCtrl.res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '1'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
                     elmt.style.backgroundColor = "#2ecc71";
                     
                 } else {
                     $cordovaVibration.vibrate(100);
-                    var res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
+                    mainCtrl.res = {'level': mainCtrl.level, 'res' : {'step': mainCtrl.step, 'status': '0'}, 'date': newdate, 'Q' : mainCtrl.currStep.Q, 'R' : mainCtrl.currResponse, 'E' : mainCtrl.currStep.E};
                     elmt.style.backgroundColor = "#c0392b";
                     mainCtrl.showResponse = true;
                 }
 
-                $localStorage.historic.push(res);
+                $localStorage.historic.push(mainCtrl.res);
 
                 mainCtrl.showNext = true;
             }
@@ -255,6 +256,11 @@
         // fermeture de la modal
         mainCtrl.closeModal = _ => {
             mainCtrl.modal.hide();
+        }
+
+        // ajout des favoris
+        mainCtrl.addFavorite = _ => {
+            $localStorage.favorite.push(mainCtrl.res);
         }
     };
 

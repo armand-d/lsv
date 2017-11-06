@@ -45,11 +45,7 @@
 	border: none;
 }
 
-.historic {
-	margin-top: 5px;
-}
-
-.historic .item-response {
+.historic .item-response, .favorite .item-response {
 	background-color: #2980b9;
 	margin-bottom: 10px;
 	display: block;
@@ -60,13 +56,19 @@
 	border: none;
 }
 
-.historic p.no-data {
+.historic p.no-data, .favorite  p.no-data{
 	color: #FFF;
 	text-align: center;
 	margin-top: 20px;
 }
 
-.historic .item-response p {
+.historic h3, .favorite  h3{
+	color: #e67e22;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.historic .item-response p, .favorite .item-response p {
 	color: #FFF;
 }
 
@@ -208,4 +210,11 @@ a.btn-tuto-next {
 .side-menu .left a {
 	text-decoration: none;
 	color: #333;
+}
+
+.side-menu .left a i {
+	width: 20px;
+	/*color: #e67e22;*/
+	display: inline-block;
+	text-align: center;
 }

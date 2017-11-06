@@ -5,7 +5,7 @@
     .module('starter')
     .controller('HistoricCtrl', HistoricCtrl);
 
-    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicSideMenuDelegate) {
+    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicSideMenuDelegate, $ionicPopup) {
         const historicCtrl = this;
 
         $scope.toggleLeft = function() {
@@ -16,6 +16,7 @@
         historicCtrl.dataModal = '';
         historicCtrl.noData = '';
         historicCtrl.data = false;
+        historicCtrl.dataFavorite = '';
 
         // Gestion des données de l'historique
         if($localStorage.historic.length == 0) {
@@ -54,8 +55,33 @@
                 });
         }
 
+        historicCtrl.addFavorite = (value) => {
+            historicCtrl.dataFavorite = value;
+            historicCtrl.favoriteExiste = false;
+
+            $.each($localStorage.favorite, function(index, value ) {
+                if (historicCtrl.dataFavorite == value) {
+                    historicCtrl.favoriteExiste = true;
+                }
+            });
+
+            if (!historicCtrl.favoriteExiste) {
+                $localStorage.favorite.push(historicCtrl.dataFavorite);
+                $ionicPopup.alert({
+                    title: 'LSV',
+                    template: 'Ajouté au favoris !'
+                });
+            } else {
+                $ionicPopup.alert({
+                    title: 'LSV',
+                    template: 'Déjà dans vos favoris.'
+                });
+                
+            }
+        }
+
     };
 
-    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicSideMenuDelegate'];
+    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicSideMenuDelegate', '$ionicPopup'];
 
 })();

@@ -12,8 +12,11 @@
   	    <p class="divider">Explication</p>
   	    <p>{{historicCtrl.dataModal.E}}</p>
         <div class="buttons">
-  	        <p ng-click="historicCtrl.share(historicCtrl.dataModal.Q, historicCtrl.dataModal.R, historicCtrl.dataModal.E)" class="button button-block button-positive">Partager</p>
-  	    </div>
+            <p ng-click="historicCtrl.share(historicCtrl.dataModal.Q, historicCtrl.dataModal.R, historicCtrl.dataModal.E)" class="button button-block button-positive">Partager</p>
+        </div>
+        <div class="buttons">
+            <p ng-click="historicCtrl.addFavorite(historicCtrl.dataModal)" class="button button-block button-energized icon ion-ios-star"></p>
+        </div>
       </div>
     </ion-content>
 </ion-modal-view>
