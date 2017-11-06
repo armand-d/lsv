@@ -218,3 +218,9 @@ a.btn-tuto-next {
 	display: inline-block;
 	text-align: center;
 }
+
+.logo-menu {
+	width: 40px;
+	margin: 10px auto;
+	display: block;
+}
