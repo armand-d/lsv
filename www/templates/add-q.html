@@ -1,0 +1,39 @@
+<!-- Add q Content -->
+<ion-header-bar align-title="center" class="no-border header">
+     <h1 class="title"><a href="#/main"><img class="logo" ng-src="img/logo-white.png" alt="LSV"></a></h1>
+     <div class="buttons">
+          <a href="#/main" class="button button-icon icon ion-ios-arrow-right"></a>
+     </div>
+</ion-header-bar>
+<ion-view view-title="add-q">
+     <ion-content class="padding add-q">
+          <h3>Vous pouvez proposer une question !</h3>
+          <small>Elle sera validée avant mise en ligne</small>
+          <br>
+          <div class="list">
+               <label class="item item-input">
+                 <textarea rows="5" placeholder="Question" ng-model="addqCtrl.content">{{addqCtrl.content}}</textarea>
+               </label>
+               <br>
+               <label class="item item-input">
+                    <input type="text" placeholder="Réponse 1" ng-model="addqCtrl.R1" ng-value="{{addqCtrl.R1}}">
+               </label>
+               <label class="item item-input">
+                    <input type="text" placeholder="Réponse 2" ng-model="addqCtrl.R2" ng-value="{{addqCtrl.R2}}">
+               </label>
+               <label class="item item-input">
+                    <input type="text" placeholder="Réponse 3" ng-model="addqCtrl.R3" ng-value="{{addqCtrl.R3}}">
+               </label>
+               <br>
+               <p ng-show="addqCtrl.R1">Sélectionnez la bonne réponse</p>
+               <ion-list>
+                 <ion-radio ng-show="addqCtrl.R1" ng-model="addqCtrl.solution" ng-value="'R1'">{{addqCtrl.R1}}</ion-radio>
+                 <ion-radio ng-show="addqCtrl.R2" ng-model="addqCtrl.solution" ng-value="'R2'">{{addqCtrl.R2}}</ion-radio>
+                 <ion-radio ng-show="addqCtrl.R3" ng-model="addqCtrl.solution" ng-value="'R3'">{{addqCtrl.R3}}</ion-radio>
+               </ion-list>
+               <button class="button button-block button-positive" ng-click="addqCtrl.submit()">
+                 Envoyer
+               </button>
+          </div>
+     </ion-content>
+</ion-view>

@@ -58,6 +58,12 @@
             templateUrl   : 'templates/historic.html',
             controller    : 'HistoricCtrl',
             controllerAs  : 'historicCtrl'
+        }).state({
+            name          : 'add-q',
+            url           : '/add-q',
+            templateUrl   : 'templates/add-q.html',
+            controller    : 'AddqCtrl',
+            controllerAs  : 'addqCtrl'
         });
 
         // Redirection vers la page d'accueil si url n'existe pas
