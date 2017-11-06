@@ -7,13 +7,15 @@
 
     function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal) {
         const mainCtrl = this;
+        
+        // Initialisation
         mainCtrl.stepIsFull = false;
         mainCtrl.showResponse = false;
         mainCtrl.showNext = false;
         mainCtrl.isLoad = false;
         mainCtrl.selectedChoose = false;
-        // mainCtrl.timeRest = null;
 
+        // Création de la date au bon format
         var dateObj = new Date();
         var month = dateObj.getUTCMonth() + 1;
         var day = dateObj.getUTCDate();
@@ -21,31 +23,7 @@
 
         var newdate =  year + "-" + month + "-" + day;
 
-        mainCtrl.getTimeRest = _ => {
-            var dateObj = new Date();
-            var hour = dateObj.getHours();
-            var mnt = dateObj.getMinutes();
-            var scd = dateObj.getSeconds();
-
-            var mntRest = 60 - mnt;
-            if (mntRest.toString().length == 1) {
-                mntRest = '0' + (60 - mnt).toString();
-            }
-
-            var scdRest = 60 - scd;
-            if (scdRest.toString().length == 1) {
-                scdRest = '0' + (60 - scd).toString();
-            }
-
-            if (scdRest == 60) { scdRest = '00';}
-            return (24 - hour) +'h'+ mntRest+':'+ scdRest;
-        }
-
-        setInterval(function(){ 
-            $('.timer').html(mainCtrl.getTimeRest());
-            mainCtrl.checkStatus();
-        }, 1000);
-
+        // Vérification de l'existance de l'utilisateur
         if (!$localStorage.clientExist) {
             $localStorage.level = 1;
             $localStorage.currDay = newdate;
@@ -55,25 +33,26 @@
             $location.path('/tuto');
         }
 
-        mainCtrl.checkStatus = _ => {
-            var dateObj = new Date();
-            var month = dateObj.getUTCMonth() + 1;
-            var day = dateObj.getUTCDate();
-            var year = dateObj.getUTCFullYear();
-
-            var nextdate =  year + "-" + month + "-" + day;
-
-            if ($localStorage.currDay != nextdate && $localStorage.step >= 5) {
-                $localStorage.level = $localStorage.level + 1;
-                $localStorage.currDay = nextdate;
-                $localStorage.step = 1;
-            }
-        }
-
         mainCtrl.level = $localStorage.level;
         mainCtrl.currDay = $localStorage.currDay;
         mainCtrl.step = $localStorage.step;
 
+        // Timer
+        setInterval(function(){ 
+            $('.timer').html(mainCtrl.getTimeRest());
+            mainCtrl.checkStatus();
+        }, 1000);
+
+        // modal
+        $ionicModal.fromTemplateUrl('templates/main.modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            mainCtrl.modal = modal;
+        });
+
+        // functions 
+        // initialise les questions
         mainCtrl.init = _ => {
 
             $ionicLoading.show({
@@ -113,7 +92,45 @@
             }
 
         }
+
+        // retourne le temps restant avant la fin de la journée courrente
+        mainCtrl.getTimeRest = _ => {
+            var dateObj = new Date();
+            var hour = dateObj.getHours();
+            var mnt = dateObj.getMinutes();
+            var scd = dateObj.getSeconds();
+
+            var mntRest = 60 - mnt;
+            if (mntRest.toString().length == 1) {
+                mntRest = '0' + (60 - mnt).toString();
+            }
+
+            var scdRest = 60 - scd;
+            if (scdRest.toString().length == 1) {
+                scdRest = '0' + (60 - scd).toString();
+            }
+
+            if (scdRest == 60) { scdRest = '00';}
+            return (24 - hour) +'h'+ mntRest+':'+ scdRest;
+        }
+
+        // Vérification du l'avancement et update du "niveau" si besoin
+        mainCtrl.checkStatus = _ => {
+            var dateObj = new Date();
+            var month = dateObj.getUTCMonth() + 1;
+            var day = dateObj.getUTCDate();
+            var year = dateObj.getUTCFullYear();
+
+            var nextdate =  year + "-" + month + "-" + day;
+
+            if ($localStorage.currDay != nextdate && $localStorage.step >= 5) {
+                $localStorage.level = $localStorage.level + 1;
+                $localStorage.currDay = nextdate;
+                $localStorage.step = 1;
+            }
+        }
         
+        // Gestion du choix de réponse sélectionné 
         mainCtrl.selected = (value, key) => {
             if (!mainCtrl.selectedChoose) {
                 mainCtrl.selectedChoose = true;
@@ -138,6 +155,7 @@
             }
         }
 
+        // Gestion du bouton "suivant"
         mainCtrl.nextQ = _ => {
             mainCtrl.showNext = false;
             mainCtrl.selectedChoose = false;
@@ -147,11 +165,13 @@
             mainCtrl.run();
         }
 
+        // mise à jour de l'étape (x/5)
         mainCtrl.updateStep = _ => {
             $localStorage.step = mainCtrl.step + 1;
             mainCtrl.step = $localStorage.step;
         }
 
+        // Lancement d'une nouvelle question
         mainCtrl.run = _ => {
             var elmts = document.getElementsByClassName('item-response');
             mainCtrl.changeColor(elmts, "#e67e22");
@@ -162,6 +182,7 @@
             mainCtrl.currResponse = mainCtrl.currStep.R[mainCtrl.currStep.S];
         }
 
+        // Vérification de l'avancé des étapes x/5
         mainCtrl.checkStep = _ => {
             if (mainCtrl.currDay == newdate && mainCtrl.step >= 5) {
                 mainCtrl.stepIsFull = true;
@@ -170,20 +191,15 @@
             }
         }
 
+        // changement des couleurs des items pour les remettre en orange (couleur par defaut)
         mainCtrl.changeColor = (coll, color) => {
-            for(var i=0, len=coll.length; i<len; i++)
+            for(var i = 0, len = coll.length; i < len; i++)
             {
                 coll[i].style["background-color"] = color;
             }
         }
 
-        mainCtrl.changeColor = (coll, color) => {
-            for(var i=0, len=coll.length; i<len; i++)
-            {
-                coll[i].style["background-color"] = color;
-            }
-        }
-
+        // fonction de partage de l'application
         mainCtrl.share = _ => {
             $cordovaSocialSharing
                 .share('Rendez vous sur LSV et découvrez jusqu\'à 5 nouvelles connaissances par jour !', 'Le Saviez Vous', null, null)
@@ -210,17 +226,12 @@
                 });
         }
 
-        $ionicModal.fromTemplateUrl('templates/main.modal.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            mainCtrl.modal = modal;
-        });
-
+        // Affichage de la modal de l'explication de la réponse à la question
         mainCtrl.showE = _ => {
             mainCtrl.modal.show();
         }
 
+        // fermeture de la modal
         mainCtrl.closeModal = _ => {
             mainCtrl.modal.hide();
         }
