@@ -57,10 +57,7 @@
         }
 
         $ionicPlatform.ready(function() {
-            if ($localStorage.bg)
-                $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');
-            else 
-                $('.pane').css('background-image', 'url(img/bg-img-2.jpg)');     
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         mainCtrl.level = $localStorage.level;

@@ -12,12 +12,12 @@
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        $(document).ready(function() {
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        $ionicPlatform.ready(function() {
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         preferenceCtrl.changeColor = value => {
-        	$('.pane').css('background-image', 'url(../img/'+value+'.jpg)');
+        	$('.pane').css('background-image', 'url(img/'+value+'.jpg)');
         	$localStorage.bg = value;
         }
     };
