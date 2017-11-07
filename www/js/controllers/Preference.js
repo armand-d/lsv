@@ -17,6 +17,7 @@
         });
 
         preferenceCtrl.changeColor = value => {
+            alert('ok');
         	$('.pane').css('background-image', 'url(../img/'+value+'.jpg)');
         	$localStorage.bg = value;
         }
