@@ -187,6 +187,13 @@ a.btn-tuto-next {
 .tuto .content-screen {
 }
 
+.tuto .screen {
+	width: 180px;
+	padding: 10px;
+	background-color: #FFF;
+	border-radius: 5px;
+} 
+
 .add-q h3, .add-q small, .add-q p {
 	text-align: center;
 	color: #FFF;
@@ -236,4 +243,18 @@ a.btn-tuto-next {
 .about {
 	text-align: center;
 	color: #F2F2F2;
+}
+
+.bg-white {
+	background-color: #FFF;
+}
+
+.slide-7 {
+	margin: 30% 0;
+	padding: 0 40px;
+	font-size: 20px
+}
+
+.explication {
+	padding: 0 20px;
 }
