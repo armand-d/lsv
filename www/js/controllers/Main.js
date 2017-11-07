@@ -51,8 +51,13 @@
             $localStorage.historic = [];
             $localStorage.favorite = [];
             $localStorage.clientExist = true;
-            $location.path('/tuto');
             $localStorage.bg = 'bg-img-4';
+
+            $(document).ready(function() {
+                $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+            });
+            
+            $location.path('/tuto');
         }
 
         $(document).ready(function() {
