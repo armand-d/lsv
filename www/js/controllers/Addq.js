@@ -5,9 +5,11 @@
     .module('starter')
     .controller('AddqCtrl', AddqCtrl);
 
-    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform) {
+    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform, $cordovaKeyboard) {
         const addqCtrl = this;
-        
+
+        $cordovaKeyboard.close();
+
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
@@ -69,6 +71,6 @@
         }
     };
 
-    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicPlatform'];
+    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicPlatform', '$cordovaKeyboard'];
 
 })();
