@@ -1,0 +1,293 @@
+/* Empty. Add your own CSS if you like */
+.pane {
+	background-image: url('../img/bg-img.jpg');
+	background-size: cover; 
+}
+
+.button-calm, .button-positive {
+	background-color: #FFF!important;
+	color: #999!important;
+}
+
+.popup {
+	border-radius: 50px!important;
+	text-align: center;
+}
+
+.popup-buttons button {
+	background-color: transparent!important;
+}
+
+.page {
+	margin-top: 54px;
+}
+
+.header {
+	background-color: transparent;
+	color: #FFF;
+	background-image: none;
+}
+
+.ion-navicon{
+	color: #FFF;
+}
+
+.header .logo {
+    width: 30px;
+    margin-top: 12px;
+}
+
+.header a {
+	color: #FFF;
+}
+
+.main h3 {
+	text-align: center;
+	padding: 2% 0;
+	display: block;
+	color: #FFF;
+}
+
+.main .item-response {
+	background-color: transparent;
+	border-radius: 50px;
+	border: 1px solid #FFF;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+}
+
+.historic .item-response, .favorite .item-response {
+	background-color: transparent;
+	border-radius: 50px;
+	border: 1px solid #FFF;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+}
+
+.historic p.no-data, .favorite  p.no-data{
+	color: #FFF;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.historic h3, .favorite  h3{
+	color: #FFF;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.historic .item-response p, .favorite .item-response p {
+	color: #FFF;
+}
+
+.list-response {
+	display: block;
+	width: 100%;
+}
+
+.main .step-is-full {
+	text-align: center;
+	margin: 50% 0;
+	display: block;
+	color: #FFF;
+}
+
+.main .step-is-full h3 {
+	font-weight: lighter;
+
+}
+
+.main .step-is-full a {
+	color: #FFF;
+}
+
+.main .step {
+	text-align: center;
+    margin: 5px auto;
+    display: block;
+    color: #FFF;
+}
+
+.main .curr-question {
+	font-size: 18px;
+	margin-top: 5px;
+	letter-spacing: 1.5px;
+	line-height: 24px;
+}
+
+.main .step p {
+	text-align: center;
+	display: block;
+	width: 100%;
+	color: #FFF;
+}
+
+.main .response p {
+	text-align: center;
+	display: block;
+	color: #FFF;
+}
+
+.modal {
+	padding: 20px;
+	background-color: #fff;
+	color: #999;
+}
+
+.modal .button-energized,.modal .button-assertive, .modal .button-positive {
+	border-radius: 50px;
+}
+
+.modal .button-positive {
+	border: 1px solid #CDCDCD;
+}
+
+.modal h3 {
+	text-align: center;
+	margin: 5% 0;
+	color: #999;
+}
+
+.modal .divider {
+	text-align: center;
+	background-color: #333;
+	padding: 5px;
+	color: #FFF;
+}
+
+.modal .response {
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.tuto {
+	margin-top: 0px;
+	padding-top: 44px;
+	text-align: center;
+	height: 100%;
+}
+
+.tuto h3, .tuto p, .tuto i {
+	color: #FFF;
+} 
+
+.tuto img.logo {
+	margin-top: 10%;
+	width: 80px;
+}
+
+.tuto .ion-ios-list-outline {
+	font-size: 30px;
+}
+
+a.btn-tuto-next {
+	text-decoration: none;
+	margin: 10px;
+	color: #FFF;
+}
+
+.tuto .btn-next {
+	background-color: transparent!important;
+	border: none;
+	color: #e67e22;
+}
+
+.tuto .button-positive {
+	border-radius: 50px;
+}
+
+.tuto .slide-1 {
+	margin: 30% 0;
+}
+
+.tuto .slide-2 p {
+	margin-left: -15px;
+}
+
+.tuto .content-screen {
+}
+
+.tuto .screen {
+	width: 180px;
+	padding: 10px;
+	background-color: #FFF;
+	border-radius: 5px;
+} 
+
+.add-q h3, .add-q small, .add-q p {
+	text-align: center;
+	color: #FFF;
+	display: block;
+}
+
+.add-q textarea {
+	background-color: transparent;
+}
+
+.add-q .item {
+	border-radius: 5px;
+	margin-top: 3px;
+	background-color: rgba(255,255,255, 0.5);
+}
+
+.add-q .button-positive {
+	border-radius: 50px;
+}
+
+.add-q p {
+	color: #FFF;
+}
+
+.side-menu .left {
+	margin-top: 20px;
+}
+
+.side-menu .left a {
+	text-decoration: none;
+	color: #333;
+}
+
+.side-menu .left a i {
+	width: 20px;
+	/*color: #e67e22;*/
+	display: inline-block;
+	text-align: center;
+}
+
+.logo-menu {
+	width: 40px;
+	margin: 10px auto;
+	display: block;
+}
+
+.about h3 {
+	color: #F2F2F2;
+}
+
+.about {
+	text-align: center;
+	color: #F2F2F2;
+}
+
+.bg-white {
+	background-color: #FFF;
+}
+
+.slide-7 {
+	margin: 30% 0;
+	padding: 0 40px;
+	font-size: 20px
+}
+
+.explication {
+	padding: 0 20px;
+}
