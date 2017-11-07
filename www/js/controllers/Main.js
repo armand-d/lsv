@@ -5,7 +5,7 @@
     .module('starter')
     .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal, $ionicSideMenuDelegate, $rootScope) {
+    function MainCtrl ($scope, $localStorage, $location, FireBase, $ionicLoading, $cordovaSocialSharing, $ionicPopup, $cordovaVibration, $cordovaLocalNotification, $ionicPlatform, $ionicModal, $ionicSideMenuDelegate, $rootScope, $ionicPlatform) {
         const mainCtrl = this;
         
         $rootScope.shareApp = _ => {
@@ -56,7 +56,7 @@
             $location.path('/tuto');
         }
 
-        $(document).ready(function() {
+        $ionicPlatform.ready(function() {
             $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
         });
 
@@ -292,6 +292,6 @@
         }
     };
 
-    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform', '$ionicModal', '$ionicSideMenuDelegate', '$rootScope'];
+    MainCtrl.$inject = ['$scope', '$localStorage', '$location', 'FireBase', '$ionicLoading', '$cordovaSocialSharing', '$ionicPopup', '$cordovaVibration', '$cordovaLocalNotification', '$ionicPlatform', '$ionicModal', '$ionicSideMenuDelegate', '$rootScope', '$ionicPlatform'];
 
 })();
