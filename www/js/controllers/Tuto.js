@@ -9,7 +9,10 @@
         const tutoCtrl = this;
 
         $ionicPlatform.ready(function() {
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+            if ($localStorage.bg)
+            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');
+            else 
+             $('.pane').css('background-image', 'url(../img/bg-img-2.jpg)'); 
         });
     };
 
