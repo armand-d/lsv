@@ -6,6 +6,7 @@
 .button-calm, .button-positive {
 	background-color: #FFF!important;
 	color: #999!important;
+	font-weight: bold;
 }
 
 .popup {
@@ -110,7 +111,7 @@
 
 .main .step {
 	text-align: center;
-    margin: 10px auto 5px auto;
+    margin: 15px auto 5px auto;
     display: block;
     color: #FFF;
 }
@@ -316,4 +317,12 @@ a.btn-tuto-next {
 .preference img {
 	width: 49%;
 	border: 5px solid #FFF;
+}
+
+.btn-info {
+	border-radius: 50px 0 0 50px!important;
+}
+
+.btn-next-q {
+	border-radius: 0 50px 50px 0!important;
 }
