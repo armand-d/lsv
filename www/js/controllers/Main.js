@@ -57,7 +57,8 @@
         }
 
         $ionicPlatform.ready(function() {
-            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');
+            $('.btn-shar-app').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         mainCtrl.level = $localStorage.level;
