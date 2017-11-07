@@ -9,6 +9,7 @@
         const tutoCtrl = this;
 
         $ionicPlatform.ready(function() {
+            alert('1');
             if ($localStorage.bg)
                 $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');
             else 
