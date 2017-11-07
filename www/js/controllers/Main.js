@@ -51,17 +51,17 @@
             $localStorage.historic = [];
             $localStorage.favorite = [];
             $localStorage.clientExist = true;
-            $localStorage.bg = 'bg-img-4';
+            // $localStorage.bg = 'bg-img-4';
 
             $location.path('/tuto');
         }
 
-        $ionicPlatform.ready(function() {
-            if ($localStorage.bg)
-                $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');
-            else 
-                $('.pane').css('background-image', 'url(../img/bg-img-2.jpg)');     
-        });
+        // $ionicPlatform.ready(function() {
+        //     if ($localStorage.bg)
+        //         $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');
+        //     else 
+        //         $('.pane').css('background-image', 'url(img/bg-img-2.jpg)');     
+        // });
 
         mainCtrl.level = $localStorage.level;
         mainCtrl.currDay = $localStorage.currDay;
