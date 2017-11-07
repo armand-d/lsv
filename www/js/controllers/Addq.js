@@ -8,13 +8,13 @@
     function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform, $cordovaKeyboard) {
         const addqCtrl = this;
 
-        $cordovaKeyboard.close();
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
         $ionicPlatform.ready(function() {
+            $cordovaKeyboard.close();
             $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');
             $('.btn-shar-app').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
