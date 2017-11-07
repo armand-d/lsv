@@ -5,15 +5,15 @@
     .module('starter')
     .controller('HistoricCtrl', HistoricCtrl);
 
-    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicSideMenuDelegate, $ionicPopup) {
+    function HistoricCtrl ($scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicSideMenuDelegate, $ionicPopup, $ionicPlatform) {
         const historicCtrl = this;
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        $(document).ready(function() {
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        $ionicPlatform.ready(function() {
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         // Initialisation des variables
@@ -86,6 +86,6 @@
 
     };
 
-    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicSideMenuDelegate', '$ionicPopup'];
+    HistoricCtrl.$inject = ['$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicSideMenuDelegate', '$ionicPopup', '$ionicPlatform'];
 
 })();

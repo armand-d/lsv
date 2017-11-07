@@ -11,6 +11,7 @@
         $ionicPlatform.ready(function() {
             $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
+        
     };
 
     TutoCtrl.$inject = ['$ionicSlideBoxDelegate', '$localStorage', '$ionicPlatform'];

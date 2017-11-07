@@ -5,15 +5,15 @@
     .module('starter')
     .controller('FavoriteCtrl', FavoriteCtrl);
 
-    function FavoriteCtrl ($ionicSideMenuDelegate, $scope, $localStorage, $ionicModal, $cordovaSocialSharing) {
+    function FavoriteCtrl ($ionicSideMenuDelegate, $scope, $localStorage, $ionicModal, $cordovaSocialSharing, $ionicPlatform) {
         const favoriteCtrl = this;
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        $(document).ready(function() {
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        $ionicPlatform.ready(function() {
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         // Initialisation des variables
@@ -78,6 +78,6 @@
 
     };
 
-    FavoriteCtrl.$inject = ['$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing'];
+    FavoriteCtrl.$inject = ['$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicModal', '$cordovaSocialSharing', '$ionicPlatform'];
 
 })();

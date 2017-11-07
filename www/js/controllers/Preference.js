@@ -5,7 +5,7 @@
     .module('starter')
     .controller('PreferenceCtrl', PreferenceCtrl);
 
-    function PreferenceCtrl ($ionicSideMenuDelegate, $scope, $localStorage) {
+    function PreferenceCtrl ($ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform) {
         const preferenceCtrl = this;
 
         $scope.toggleLeft = function() {
@@ -22,6 +22,6 @@
         }
     };
 
-    PreferenceCtrl.$inject = ['$ionicSideMenuDelegate', '$scope', '$localStorage'];
+    PreferenceCtrl.$inject = ['$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicPlatform'];
 
 })();

@@ -5,15 +5,15 @@
     .module('starter')
     .controller('AddqCtrl', AddqCtrl);
 
-    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage) {
+    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform) {
         const addqCtrl = this;
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        $(document).ready(function() {
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        $ionicPlatform.ready(function() {
+            $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });
 
         addqCtrl.content = '';
@@ -68,6 +68,6 @@
         }
     };
 
-    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope', '$localStorage'];
+    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope', '$localStorage', '$ionicPlatform'];
 
 })();
