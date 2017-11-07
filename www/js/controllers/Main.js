@@ -53,8 +53,6 @@
             $localStorage.clientExist = true;
             $localStorage.bg = 'bg-img-4';
 
-            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
-
             $location.path('/tuto');
         }
 
