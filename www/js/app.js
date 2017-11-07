@@ -9,7 +9,7 @@
             if(window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-                cordova.plugins.Keyboard.close();
+                cordova.plugins.Keyboard.close(true);
             }
             if(window.StatusBar) {
                 StatusBar.styleDefault();

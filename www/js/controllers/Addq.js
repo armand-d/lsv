@@ -7,7 +7,7 @@
 
     function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform) {
         const addqCtrl = this;
-
+        
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
