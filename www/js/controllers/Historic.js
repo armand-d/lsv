@@ -12,6 +12,10 @@
             $ionicSideMenuDelegate.toggleLeft();
         };
 
+        $(document).ready(function() {
+            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        });
+
         // Initialisation des variables
         historicCtrl.dataModal = '';
         historicCtrl.noData = '';

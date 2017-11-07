@@ -1,0 +1,18 @@
+<!-- About Content -->
+<ion-header-bar align-title="center" class="no-border header">
+     <div class="buttons">
+          <a ng-click="toggleLeft()"><i class="button button-icon icon ion-navicon"></i></a>
+     </div>
+     <h1 class="title"><a href="#/main"><img class="logo" ng-src="img/logo-white.png" alt="LSV"></a></h1>
+</ion-header-bar>
+<ion-view view-title="preference">
+     <ion-content class="padding preference">
+     		<h3>Choisir un thèmes</h3>
+          	<div class="content-bg">
+                    <img ng-src="img/bg-img-1.jpg" ng-click="preferenceCtrl.changeColor('bg-img-1')" alt="">
+                    <img ng-src="img/bg-img-2.jpg" ng-click="preferenceCtrl.changeColor('bg-img-2')" alt="">
+                    <img ng-src="img/bg-img-3.jpg" ng-click="preferenceCtrl.changeColor('bg-img-3')" alt="">
+                    <img ng-src="img/bg-img-4.jpg" ng-click="preferenceCtrl.changeColor('bg-img-4')" alt="">
+               </div>
+     </ion-content>
+</ion-view>

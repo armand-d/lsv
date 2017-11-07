@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
 .pane {
-	background-image: url('../img/bg-img.jpg');
+	/*background-image: url(../img/bg-img-1.jpg);*/
 	background-size: cover; 
 }
 
@@ -247,6 +247,15 @@ a.btn-tuto-next {
 	color: #FFF;
 }
 
+.btn-shar-app {
+	border: 1px solid #eee!important;
+    border-radius: 50px!important;
+    width: 80%!important;
+    margin: 20px auto!important;
+    background-color: #2c3e50!important;
+    color: #FFF!important;
+}
+
 .side-menu .left {
 	margin-top: 20px;
 }
@@ -290,4 +299,22 @@ a.btn-tuto-next {
 
 .explication {
 	padding: 0 20px;
+}
+
+/*// Préférence*/
+
+.preference h3 {
+	color: #FFF;
+	text-align: center;
+}
+
+.preference .content-bg {
+	margin: 0 auto;
+	display: block;
+	width: 90%;
+}
+
+.preference img {
+	width: 49%;
+	border: 5px solid #FFF;
 }

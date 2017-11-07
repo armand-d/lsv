@@ -4,7 +4,7 @@
     // Création du module starter
     var app = angular.module('starter', ['ionic', 'ui.router', 'ngStorage', 'firebase', 'ngCordova'])
 
-    .run(function($ionicPlatform, $http) {
+    .run(function($ionicPlatform, $http, $localStorage) {
         $ionicPlatform.ready(function() {
             if(window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -12,7 +12,7 @@
                 cordova.plugins.Keyboard.close();
             }
             if(window.StatusBar) {
-            StatusBar.styleDefault();
+                StatusBar.styleDefault();
             }
         });
     })
@@ -78,6 +78,13 @@
             templateUrl   : 'templates/favorite.html',
             controller    : 'FavoriteCtrl',
             controllerAs  : 'favoriteCtrl',
+            cache         : false
+        }).state({
+            name          : 'preference',
+            url           : '/preference',
+            templateUrl   : 'templates/preference.html',
+            controller    : 'PreferenceCtrl',
+            controllerAs  : 'preferenceCtrl',
             cache         : false
         });
 

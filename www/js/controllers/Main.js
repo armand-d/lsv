@@ -52,7 +52,12 @@
             $localStorage.favorite = [];
             $localStorage.clientExist = true;
             $location.path('/tuto');
+            $localStorage.bg = 'bg-img-4';
         }
+
+        $(document).ready(function() {
+            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        });
 
         mainCtrl.level = $localStorage.level;
         mainCtrl.currDay = $localStorage.currDay;
@@ -196,7 +201,8 @@
         // Lancement d'une nouvelle question
         mainCtrl.run = _ => {
             var elmts = document.getElementsByClassName('item-response');
-            mainCtrl.changeColor(elmts, "#e67e22");
+            // mainCtrl.changeColor(elmts, "#e67e22");
+            mainCtrl.changeColor(elmts, "transparent");
 
             mainCtrl.showResponse = false;
             mainCtrl.currLevel = mainCtrl.level;

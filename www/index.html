@@ -46,6 +46,7 @@
     <script src="js/controllers/Addq.js"></script>
     <script src="js/controllers/About.js"></script>
     <script src="js/controllers/Favorite.js"></script>
+    <script src="js/controllers/Preference.js"></script>
   </head>
   <body ng-app="starter" class="ng-body">
 
@@ -56,9 +57,10 @@
         <a class="item" menu-close href="#/historic"><i class="ion-ios-list-outline"></i>&nbsp;Historique</a>
         <a class="item" menu-close href="#/add-q"><i class="ion-plus"></i>&nbsp;Proposer une question</a>
         <a class="item" menu-close href="#/favorite"><i class="ion-star"></i>&nbsp;Favoris</a>
-        <a class="item" menu-close href="#/about"><i class="ion-help"></i>&nbsp;A propos</a>          
+        <a class="item" menu-close href="#/about"><i class="ion-help"></i>&nbsp;A propos</a>
+        <a class="item" menu-close href="#/preference"><i class="ion-images"></i>&nbsp;Thèmes</a>
         <a class="item" menu-close href="#/tuto"><strong><i class="ion-help-buoy"></i>&nbsp;Tuto</strong></a>
-        <button ng-click="shareApp()" class="item button button-full button-positive">
+        <button ng-click="shareApp()" class="item button button-full button-positive btn-shar-app">
           Partager
         </button>
       </ion-side-menu>

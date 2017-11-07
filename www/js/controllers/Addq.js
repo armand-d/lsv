@@ -5,12 +5,16 @@
     .module('starter')
     .controller('AddqCtrl', AddqCtrl);
 
-    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope) {
+    function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage) {
         const addqCtrl = this;
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
+
+        $(document).ready(function() {
+            $('.pane').css('background-image', 'url(../img/'+$localStorage.bg+'.jpg)');    
+        });
 
         addqCtrl.content = '';
         addqCtrl.R1 = '';
@@ -64,6 +68,6 @@
         }
     };
 
-    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope'];
+    AddqCtrl.$inject = ['$ionicPopup', 'FireBase', '$ionicLoading', '$ionicSideMenuDelegate', '$scope', '$localStorage'];
 
 })();
