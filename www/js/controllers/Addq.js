@@ -8,6 +8,7 @@
     function AddqCtrl ($ionicPopup, FireBase, $ionicLoading, $ionicSideMenuDelegate, $scope, $localStorage, $ionicPlatform, $cordovaKeyboard) {
         const addqCtrl = this;
 
+        $("textarea").focus();
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
