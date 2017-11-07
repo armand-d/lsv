@@ -11,11 +11,11 @@
         $("textarea").focus();
 
         $scope.toggleLeft = function() {
+            $cordovaKeyboard.close();
             $ionicSideMenuDelegate.toggleLeft();
         };
 
         $ionicPlatform.ready(function() {
-            $cordovaKeyboard.close();
             $('.pane').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');
             $('.btn-shar-app').css('background-image', 'url(img/'+$localStorage.bg+'.jpg)');  
         });

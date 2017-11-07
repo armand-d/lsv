@@ -65,7 +65,8 @@
             url           : '/add-q',
             templateUrl   : 'templates/add-q.html',
             controller    : 'AddqCtrl',
-            controllerAs  : 'addqCtrl'
+            controllerAs  : 'addqCtrl',
+            cache         : false
         }).state({
             name          : 'about',
             url           : '/about',
